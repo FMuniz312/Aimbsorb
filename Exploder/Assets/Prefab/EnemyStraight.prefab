@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8123226042895509975}
   - component: {fileID: 8123226042895509976}
   - component: {fileID: 8123226042895509977}
-  - component: {fileID: 1538925691992642316}
+  - component: {fileID: 7269068079786324506}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -90,7 +90,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.8018868, g: 0.14751692, b: 0.14751692, a: 1}
+  m_Color: {r: 0.8, g: 0.68604755, b: 0.14901958, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -100,7 +100,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1538925691992642316
+--- !u!114 &7269068079786324506
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8123226042895509978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 875d3cf894b52aa43a4379a3d51c8441, type: 3}
+  m_Script: {fileID: 11500000, guid: 1dbcce31bbca23b4cba3888ca8fe7a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  enemyScriptableObject: {fileID: 11400000, guid: 2f4452465d083934696c847835f9319b, type: 2}

@@ -15,7 +15,8 @@ namespace MunizCodeKit.Factory
         }
         public enum FactoryProduct
         {
-            DefaultEnemy
+            StraightEnemy,
+            ZigZagEnemy
         }
 
         public GameObject CreateItem(FactoryProduct factoryProduct)

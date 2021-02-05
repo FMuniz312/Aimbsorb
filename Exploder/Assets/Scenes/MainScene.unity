@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raycastPos: {x: 0, y: 0, z: 0}
-  raycastRadius: 1
+  raycastRadius: 0.55
   killKey: 119
 --- !u!114 &117554539
 MonoBehaviour:
@@ -282,12 +282,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -446,6 +446,8 @@ MonoBehaviour:
   productDatas:
   - prefab: {fileID: 8123226042895509978, guid: cb5c6cfb9ea9e1d4ba3daa196b412935, type: 3}
     factoryProductType: 0
+  - prefab: {fileID: 8123226042895509978, guid: a6448a57bf8016a41a006707a53d6ba8, type: 3}
+    factoryProductType: 1
 --- !u!114 &1318303113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -575,7 +577,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10.75, y: -133.71}
+  m_AnchoredPosition: {x: 10.75, y: -381.3}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1529631332
@@ -600,20 +602,20 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-    m_FontSize: 23
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 42
+    m_MaxSize: 50
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "-Aperte \"E\" para\nspawnar 3 inimigos\nem fileira\n\n-Aperte \"W\" quando\nos
-    inimigos estiverem\ndentro do raio de destrui\xE7\xE3o\npara matar-los\n\nOs
-    pontos aparecem no \"Console\""
+  m_Text: "-Aperte \"E\" para\nspawnar 3 inimigos\n\n-Aperte \"W\" quando\nos inimigos
+    estiverem\ndentro do raio de destrui\xE7\xE3o\npara matar-los\n\nOs pontos aparecem
+    no \"Console\""
 --- !u!222 &1529631333
 CanvasRenderer:
   m_ObjectHideFlags: 0
