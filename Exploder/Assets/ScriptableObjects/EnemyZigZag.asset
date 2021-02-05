@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: EnemyZigZag
   m_EditorClassIdentifier: 
   moveType: 1
-  speed: 1
-  zigzagStrenght: 10
-  zigzagSpeedChange: 3
+  speed: 3
+  zigzagStrenght: 50
+  zigzagSpeedChange: 5

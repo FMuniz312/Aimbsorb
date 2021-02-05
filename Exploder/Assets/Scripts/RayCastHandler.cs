@@ -6,9 +6,9 @@ using System.Linq;
 public class RayCastHandler : MonoBehaviour
 {
     [Header("Resource Input")]
-    [SerializeField] Vector3 raycastPos;
+
     [SerializeField] float raycastRadius;
-    [SerializeField] KeyCode killKey;
+    [SerializeField] DataHolder[] dataHolders;
 
     CharacterBehaviour playerScript;
 
@@ -28,25 +28,33 @@ public class RayCastHandler : MonoBehaviour
 
     private void PointsSystem_OnPointsChanged(object sender, MunizCodeKit.Systems.PointsSystem.OnPointsDataEventArgs e)
     {
-        Debug.Log(e.CurrentPointsEventArgs);
+        Debug.Log("Total points: " + e.CurrentPointsEventArgs);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(killKey))
+        for (int i = 0; i < dataHolders.Length; i++)
         {
-            info = CheckIfHitSomething();
+            CheckPlayerInput(i);
+        }
+    }
+
+    void CheckPlayerInput(int i)
+    {
+
+        if (Input.GetKeyDown(dataHolders[i].killKey))
+        {
+            info = CheckIfHitSomething(dataHolders[i]);
             if (info.Length > 0)
             {
                 EnemyHitted(info);
             }
         }
     }
-
-    RaycastHit2D[] CheckIfHitSomething()
+    RaycastHit2D[] CheckIfHitSomething(DataHolder data)
     {
         RaycastHit2D[] info;
-        info = Physics2D.CircleCastAll(raycastPos, raycastRadius, Vector2.zero);
+        info = Physics2D.CircleCastAll(data.raycastTransf.position, raycastRadius, Vector2.zero);
         return info;
     }
 
@@ -57,17 +65,36 @@ public class RayCastHandler : MonoBehaviour
         foreach (RaycastHit2D raycast in raycastHit2Ds)
         {
             //Por enquanto a relação entre pontos e distância é de 1 para 1 (não é o ideal) 
-            points +=  1 / Vector2.Distance(raycast.collider.transform.position, centroidpos);
+            float distance = Vector2.Distance(raycast.collider.transform.position, centroidpos);
+            points += 1 / distance;
             Destroy(raycast.collider.gameObject);
+            Debug.Log("Enemy destroyed! Your precision was " + distance.ToString("F2") + " units away from the center!");
         }
+
         points *= 100;
         playerScript.pointsSystem.AddValue((int)points);
     }
 
+    DataHolder GetCorrectData(KeyCode killkey)
+    {
+        return dataHolders.Where((data) => data.killKey == killkey).FirstOrDefault();
+    }
+
+    [System.Serializable]
+    public struct DataHolder
+    {
+        public Transform raycastTransf;
+        public KeyCode killKey;
+    }
+
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(raycastPos, raycastRadius);
+        Gizmos.DrawWireSphere(dataHolders[0].raycastTransf.position, raycastRadius);
+        Gizmos.DrawWireSphere(dataHolders[1].raycastTransf.position, raycastRadius);
+        Gizmos.DrawWireSphere(dataHolders[2].raycastTransf.position, raycastRadius);
+        Gizmos.DrawWireSphere(dataHolders[3].raycastTransf.position, raycastRadius);
     }
 
 }

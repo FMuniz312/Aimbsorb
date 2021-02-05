@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 295716ea911d93b4e888e56b70ca8f63, type: 3}
-  m_Name: EnemyStraight
+  m_Script: {fileID: 11500000, guid: 9738ed95be3e99642b211455b9c54ce8, type: 3}
+  m_Name: EnemyBoomerang
   m_EditorClassIdentifier: 
-  moveType: 0
-  speed: 7
+  moveType: 2
+  speed: 4
+  speedSpecialMove: 5
+  specialMoveDistance: 5
+  timerMaxSpecialMove: 5
+  timerMaxSafeMove: 5

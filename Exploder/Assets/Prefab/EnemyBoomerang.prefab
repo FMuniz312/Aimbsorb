@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8123226042895509975}
   - component: {fileID: 8123226042895509976}
   - component: {fileID: 8123226042895509977}
-  - component: {fileID: 7269068079786324506}
+  - component: {fileID: -1546521612960629931}
   m_Layer: 0
-  m_Name: EnemyStraight
+  m_Name: EnemyBoomerang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,7 +90,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.8, g: 0.68604755, b: 0.14901958, a: 1}
+  m_Color: {r: 0.6981132, g: 0.02963687, b: 0.43300775, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -100,7 +100,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7269068079786324506
+--- !u!114 &-1546521612960629931
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8123226042895509978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dbcce31bbca23b4cba3888ca8fe7a66, type: 3}
+  m_Script: {fileID: 11500000, guid: 28bbbd3cb4ee62443a6858e4769aa9c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyScriptableObject: {fileID: 11400000, guid: 2f4452465d083934696c847835f9319b, type: 2}
+  enemyScriptableObject: {fileID: 11400000, guid: 76196ec2890828e418152c8d605c92db, type: 2}
