@@ -29,4 +29,8 @@ public abstract class EnemyBehaviourMasterClass : MonoBehaviour
     {
         
     }
+    private void OnDestroy()
+    {
+        MunizCodeKit.Factory.PrefabFactory.instance.CreateItem(MunizCodeKit.Factory.PrefabFactory.FactoryProduct.EnemyDeathParticle,transform.position);
+    }
 }

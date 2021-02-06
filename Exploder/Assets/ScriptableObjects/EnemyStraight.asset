@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EnemyStraight
   m_EditorClassIdentifier: 
   moveType: 0
-  speed: 7
+  speed: 15

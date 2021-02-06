@@ -9,9 +9,6 @@ public class BoomerangEnemyScriptableObject : ScriptableObject
 
     [Header("Game Balance")]
     public float speed;
-    public float speedSpecialMove;
-    public float specialMoveDistance;
-    public float timerMaxSpecialMove;
-    public float timerMaxSafeMove;
+ 
     
 }

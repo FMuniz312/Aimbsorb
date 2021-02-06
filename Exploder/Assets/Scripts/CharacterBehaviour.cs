@@ -6,16 +6,21 @@ using MunizCodeKit.Systems;
 public class CharacterBehaviour : MonoBehaviour
 {
     public PointsSystem pointsSystem { get; private set; }
-    // Start is called before the first frame update
+
+    #region singleton
+    static public CharacterBehaviour instance { get; private set; }
+    #endregion
+
     void Awake()
     {
+        if (instance == null) instance = this;
         pointsSystem = new PointsSystem();
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
