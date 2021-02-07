@@ -11,7 +11,7 @@ namespace MunizCodeKit.Systems
 
 
         static public SoundSystem instance;
-        public float volumeMultiplier { get; private set; }
+      
 
         private void Awake()
         {
@@ -20,18 +20,9 @@ namespace MunizCodeKit.Systems
 
         public enum Sound
         {
-            ConfirmationSound,
-            DeclineSound,
-            MenuClick1,
-            MenuClick2,
-            MenuClick3,
-            PlayerDash,
-            PlayerHurt,
-            ProjectileExplode,
-            PlayerAttack,
-
-
-
+           EnergyAbsorbed,
+           PlayerHit
+                 
         }
 
         public void PlaySound(Sound soundType)
@@ -39,16 +30,13 @@ namespace MunizCodeKit.Systems
             GameObject gameObject = new GameObject("SoundEffect_", typeof(AudioSource));
             AudioSource audioSource = gameObject.GetComponent<AudioSource>();
             AudioClip audioClip = GetAudioClip(soundType);
-            audioSource.volume *= volumeMultiplier;
+            
             audioSource.PlayOneShot(audioClip);
             Destroy(gameObject, audioClip.length);
 
         }
 
-        public void ChangeVolumeMultiplier(float volume)
-        {
-            volumeMultiplier = volume;
-        }
+        
         AudioClip GetAudioClip(Sound sound)
         {
             foreach (AudioClipData ClipData in audioClipData)

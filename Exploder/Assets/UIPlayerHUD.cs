@@ -9,29 +9,46 @@ public class UIPlayerHUD : MonoBehaviour
 {
     [Header("Resource Input")]
     [SerializeField] Text currentPointsText;
+    [SerializeField] Text levelText;
 
     [Header("Tweening")]
-    [SerializeField] float pointsTextShakeDuration;
-    [SerializeField] float pointsTextShakeStrenght;
+    [SerializeField] float energyPointsTextShakeDuration;
+    [SerializeField] float energyPointsTextShakeStrenght;
+    [SerializeField] float levelPointsTextShakeDuration;
+    [SerializeField] float levelPointsTextShakeStrenght;
 
-    Tween shakeTween;
+    Tween shakeEnergyTextTween;
 
     private void Start()
     {
-        CharacterBehaviour.instance.pointsSystem.OnPointsChanged += PlayerPoints_OnPointsChanged;
-        UpdatePointText();
+        CharacterBehaviour.instance.levelSystem.experiencePointsSystem.OnPointsChanged += PlayerPoints_OnEnergyPointsChanged;
+        CharacterBehaviour.instance.levelSystem.levelPointsSystem.OnPointsChanged += LevelPoints_OnLevelPointsChanged; ;
+        UpdateEnergyPointsText();
+        UpdateLevelPointsText();
 
     }
-   
-    private void PlayerPoints_OnPointsChanged(object sender, PointsSystem.OnPointsDataEventArgs e)
+
+    private void LevelPoints_OnLevelPointsChanged(object sender, PointsSystem.OnPointsDataEventArgs e)
     {
-        UpdatePointText();
-        shakeTween?.Complete();
-        shakeTween = transform.DOShakeScale(pointsTextShakeDuration, pointsTextShakeStrenght);
+        UpdateLevelPointsText();
+        shakeEnergyTextTween?.Complete();
+        shakeEnergyTextTween = transform.DOShakeScale(levelPointsTextShakeDuration, levelPointsTextShakeStrenght);
+
     }
 
-    void UpdatePointText()
+    private void PlayerPoints_OnEnergyPointsChanged(object sender, PointsSystem.OnPointsDataEventArgs e)
     {
-        currentPointsText.text = "Energy: " + CharacterBehaviour.instance.pointsSystem.currentPoints;
+        UpdateEnergyPointsText();
+        shakeEnergyTextTween?.Complete();
+        shakeEnergyTextTween = transform.DOShakeScale(energyPointsTextShakeDuration, levelPointsTextShakeStrenght);
+    }
+
+    void UpdateEnergyPointsText()
+    {
+        currentPointsText.text = "Energy: " + CharacterBehaviour.instance.levelSystem.experiencePointsSystem.currentPoints + " / " + CharacterBehaviour.instance.levelSystem.experiencePointsSystem.maxPoints;
+    }
+    void UpdateLevelPointsText()
+    {
+        levelText.text = "Level: " + CharacterBehaviour.instance.levelSystem.levelPointsSystem.currentPoints + " / " + CharacterBehaviour.instance.levelSystem.levelPointsSystem.maxPoints;
     }
 }

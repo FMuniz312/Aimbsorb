@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: f938e5b197866334c9a29fa8242907e8
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Trispace SemiExpanded
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 06ee96421e85ad745afa0dc1c928ee88, type: 3}
+  - {fileID: 12800000, guid: b24cf5d36f28ceb499afd22ab8dfd849, type: 3}
+  - {fileID: 12800000, guid: e0d9ee689a3a12a40992ee2a7e6f1094, type: 3}
+  - {fileID: 12800000, guid: 22bf088862555be42ad98f8d13fb723e, type: 3}
+  - {fileID: 12800000, guid: b9f20bbc06cb7ca4993021aaa5ff8013, type: 3}
+  - {fileID: 12800000, guid: 40f5bbce6400eea4a95cedea5d122d57, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

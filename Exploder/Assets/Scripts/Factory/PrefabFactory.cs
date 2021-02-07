@@ -18,7 +18,8 @@ namespace MunizCodeKit.Factory
             StraightEnemy,
             ZigZagEnemy,
             boomerangEnemy,
-            EnemyDeathParticle
+            EnemyDeathParticle,
+            PlayerHitParticle
         }
 
         public GameObject CreateItem(FactoryProduct factoryProduct)

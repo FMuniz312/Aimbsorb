@@ -61,6 +61,40 @@ namespace MunizCodeKit.Systems
             maxPoints = maxpoints;
             currentPoints = startingpoints;
         }
+        /// <summary>
+        /// Set the MaxPoints of the PointsSystem instance
+        /// </summary>
+        public void SetMaxPoints(int maxpoints)
+        {
+            if (maxpoints > 0)
+            {
+                maxPoints = maxpoints;
+            }
+            else
+            {
+                Debug.LogError("value can't be negative nor zero!");
+            }
+        }
+        /// <summary>
+        /// Set currentPoints in the PointsSystem instance
+        /// </summary>
+         public void SetCurrentPoints(int currentpoints)
+        {
+            if (currentpoints > 0 && currentpoints <= maxPoints)
+            { 
+                OnPointsDataEventArgs EventArgsData = new OnPointsDataEventArgs { CurrentPointsEventArgs = currentPoints };
+                if(currentpoints == maxPoints) OnPointsMax?.Invoke(this, EventArgsData);
+                currentPoints = currentpoints;
+                OnPointsChanged?.Invoke(this, EventArgsData);
+               
+
+
+            }
+            else
+            {
+                Debug.LogError("value can't be negative nor zero!");
+            }
+        }
         /// <summary>Removes X (<paramref name="value"/>) points from this PointSystem's Current Points (always use positive values, the calculation is made within the function).</summary>
         /// <remarks>  
         /// If, after the calculation, the amount
@@ -141,13 +175,13 @@ namespace MunizCodeKit.Systems
         /// Set CurrentPoints variable to 0
         /// </summary>
         /// <remarks>Triggers the OnPointsChanged and OnPointsZero events</remarks>
-        public void ResetPoints()
+        public void ResetPoints(bool triggerzeropoints=false)
         {
             currentPoints = 0;
 
             OnPointsDataEventArgs EventArgsData = new OnPointsDataEventArgs { CurrentPointsEventArgs = currentPoints };
             OnPointsChanged?.Invoke(this, EventArgsData);
-            OnPointsZero?.Invoke(this, EventArgsData);
+            if(triggerzeropoints)OnPointsZero?.Invoke(this, EventArgsData);
 
         }
         /// <summary>

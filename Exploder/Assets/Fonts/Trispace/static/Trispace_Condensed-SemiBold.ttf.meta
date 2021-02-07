@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: fe0347b3f74cfd443b0c4f09d2310e4e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Trispace Condensed
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 55869a40cb11b1f43bead976d9e3eabf, type: 3}
+  - {fileID: 12800000, guid: 67c37d921f0341f4fb294a895bfef66c, type: 3}
+  - {fileID: 12800000, guid: 7d4af0d3f58c92c46a3003f2b8806fe8, type: 3}
+  - {fileID: 12800000, guid: 464d9a15ef3516643a28aed649409574, type: 3}
+  - {fileID: 12800000, guid: ca88ffd6c8d36b1448c9ca4ed4f1c274, type: 3}
+  - {fileID: 12800000, guid: 49f7901b03618324aa43ccd56c3a88df, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
