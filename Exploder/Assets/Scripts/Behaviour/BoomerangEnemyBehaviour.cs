@@ -17,9 +17,6 @@ public class BoomerangEnemyBehaviour : EnemyBehaviourMasterClass
     protected override void MoveEnemy()
     {
         
-
-
-
     }
 
    

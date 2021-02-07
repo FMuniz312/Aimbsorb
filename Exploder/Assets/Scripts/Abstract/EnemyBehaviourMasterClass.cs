@@ -17,6 +17,20 @@ public abstract class EnemyBehaviourMasterClass : MonoBehaviour
     {
         moveDestination = movedes;
         transform.up = (moveDestination() - transform.position).normalized;
+        GameManager.onGameWon += GameManager_onGameWon;
+        GameManager.onGameLost += GameManager_onGameLost;
+    }
+
+   
+
+    private void GameManager_onGameWon(object sender, EventArgs e)
+    {
+        Destroy(gameObject);
+    }
+
+    private void GameManager_onGameLost(object sender, EventArgs e)
+    {
+        Destroy(gameObject);
     }
 
     protected void FixedUpdate()
@@ -29,5 +43,10 @@ public abstract class EnemyBehaviourMasterClass : MonoBehaviour
     {
         
     }
-  
+    private void OnDestroy()
+    {
+        GameManager.onGameWon -= GameManager_onGameWon;
+        GameManager.onGameLost -= GameManager_onGameLost;
+    }
+
 }

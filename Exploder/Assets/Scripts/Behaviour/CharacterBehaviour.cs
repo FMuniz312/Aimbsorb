@@ -15,7 +15,9 @@ public class CharacterBehaviour : MonoBehaviour
     float zoomDefault;
     Tween cameraZoomIn;
 
-    public RPGLevelSystem levelSystem { get; private set; }
+    public LevelSystem levelSystem { get; private set; }
+    public PointsSystem healthSystem { get; private set; }
+
  
     #region singleton
     static public CharacterBehaviour instance { get; private set; }
@@ -24,7 +26,8 @@ public class CharacterBehaviour : MonoBehaviour
     void Awake()
     {
         if (instance == null) instance = this;
-        levelSystem = new RPGLevelSystem(100,4,1.2f);
+        levelSystem = new LevelSystem(100,4,1.2f);
+        healthSystem = new PointsSystem(20);
          zoomDefault = Camera.main.orthographicSize;
     }
  
@@ -35,6 +38,7 @@ public class CharacterBehaviour : MonoBehaviour
         {
             VisualEffectOnHit(collision.gameObject);
             SoundSystem.instance.PlaySound(SoundSystem.Sound.PlayerHit);
+            healthSystem.AddValue(1);
             Destroy(collision.gameObject);
         }
     }

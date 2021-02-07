@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace MunizCodeKit.Systems
 {
-    public class RPGLevelSystem
+    public class LevelSystem
     {
         public PointsSystem experiencePointsSystem { get; private set; }
         public PointsSystem levelPointsSystem { get; private set; }
         float experienceFactor;
         bool isThereExperienceFactor;
-        public RPGLevelSystem(int maxexperience = 100, int maxlevel = 60)
+        public LevelSystem(int maxexperience = 100, int maxlevel = 60)
         {
             experiencePointsSystem = new PointsSystem(maxexperience);
             levelPointsSystem = new PointsSystem(maxlevel, 1);
 
         }
 
-        public RPGLevelSystem(int maxexperience = 100, int maxlevel = 60, float experiencefactor = 1.2f)
+        public LevelSystem(int maxexperience = 100, int maxlevel = 60, float experiencefactor = 1.2f)
         {
             experiencePointsSystem = new PointsSystem(maxexperience);
             levelPointsSystem = new PointsSystem(maxlevel,1);

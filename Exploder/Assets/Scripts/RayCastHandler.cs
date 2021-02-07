@@ -43,6 +43,10 @@ public class RayCastHandler : MonoBehaviour
             {
                 EnemyHitted(info);
             }
+            else
+            {
+                CharacterBehaviour.instance.healthSystem.AddValue(3);
+            }
         }
     }
     RaycastHit2D[] CheckIfHitSomething(DataHolder data)
@@ -84,7 +88,7 @@ public class RayCastHandler : MonoBehaviour
         }
         MunizCodeKit.MonoBehaviours.CameraController.ShakeCamera(.07f, .8f);
         points *= 2.5f;
-        if (points == 0) points = 1;
+        if (points < 1) points = 1;
         playerScript.levelSystem.AddExperience((int)points);
     }
 
