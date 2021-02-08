@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using MunizCodeKit.Factory;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     static public event EventHandler onGameWon;
     static public event EventHandler onGameLost;
+    AudioSource songAudioSource;
     public static bool gameRunning;
     float timer;
     int randomPos;
@@ -23,6 +25,9 @@ public class GameManager : MonoBehaviour
     int randomEnemy;
     private void Start()
     {
+        songAudioSource = Camera.main.gameObject.GetComponent<AudioSource>();
+        songAudioSource.volume = 0;
+        DOTween.To(()=>songAudioSource.volume, (p) => songAudioSource.volume = p, 1, 2.5f);
         gameRunning = true;
         timer = spawnTimer;
         CharacterBehaviour.instance.levelSystem.levelPointsSystem.OnPointsIncreased += LevelPointsSystem_OnPointsIncreased;
@@ -31,6 +36,7 @@ public class GameManager : MonoBehaviour
 
     private void HealthSystem_OnPointsMax(object sender, MunizCodeKit.Systems.PointsSystem.OnPointsDataEventArgs e)
     {
+        DOTween.To(() => songAudioSource.volume, (p) => songAudioSource.volume = p, .4f, 2.5f);
         onGameLost?.Invoke(this, EventArgs.Empty);
         gameRunning = false;
 

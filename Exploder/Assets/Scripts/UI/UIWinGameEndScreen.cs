@@ -50,11 +50,13 @@ public class UIWinGameEndScreen : MonoBehaviour
     string GetCorrectComment()
     {
         int duration = GameTimerController.instance.GetSceneDurationUntilNow().Seconds;
-        if (duration < 250)
+        const float MIN_EXPECTED = 190;
+        const float EXPECTED = 315;
+        if (duration < MIN_EXPECTED)
         {
             return "Wow, that's really fast! One of the best!";
         }
-        else if (duration >= 250 && duration < 390)
+        else if (duration >= MIN_EXPECTED && duration < EXPECTED)
         {
             return "Nice! But you can finish it faster!";
         }
