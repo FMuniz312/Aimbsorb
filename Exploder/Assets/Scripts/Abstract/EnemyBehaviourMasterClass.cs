@@ -11,6 +11,7 @@ public abstract class EnemyBehaviourMasterClass : MonoBehaviour
     protected Vector3 moveDir;
     protected float increasevalue;
     protected float enemyZigZagMovement;
+    ParticleEnemyMovementBehaviour particleEnemyMovementBehaviour;
 
 
     public void SetupEnemy(Func<Vector3> movedes)
@@ -19,6 +20,9 @@ public abstract class EnemyBehaviourMasterClass : MonoBehaviour
         transform.up = (moveDestination() - transform.position).normalized;
         GameManager.onGameWon += GameManager_onGameWon;
         GameManager.onGameLost += GameManager_onGameLost;
+        GameObject particleFollow = MunizCodeKit.Factory.PrefabFactory.instance.CreateItem(MunizCodeKit.Factory.PrefabFactory.FactoryProduct.FollowEnemyParticle, transform.position);
+        particleEnemyMovementBehaviour = particleFollow.GetComponent<ParticleEnemyMovementBehaviour>();
+        particleEnemyMovementBehaviour.Setup(transform);
     }
 
    
@@ -47,6 +51,7 @@ public abstract class EnemyBehaviourMasterClass : MonoBehaviour
     {
         GameManager.onGameWon -= GameManager_onGameWon;
         GameManager.onGameLost -= GameManager_onGameLost;
+        particleEnemyMovementBehaviour.DestroyParticle();
     }
 
 }

@@ -25,7 +25,7 @@ public class CharacterBehaviour : MonoBehaviour
     void Awake()
     {
         if (instance == null) instance = this;
-        levelSystem = new LevelSystem(100,4,1.2f);
+        levelSystem = new LevelSystem(30,4,2f);
         healthSystem = new PointsSystem(20);
   
     }
