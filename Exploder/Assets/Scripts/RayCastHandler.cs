@@ -12,6 +12,8 @@ public class RayCastHandler : MonoBehaviour
     [Header("Tweening")]
     [SerializeField] float critHitShakeStrenght;
     [SerializeField] float critHitShakeDuration;
+    [SerializeField] float cameraShakeStrenght;
+    [SerializeField] float cameraShakeDuration;
 
     CharacterBehaviour playerScript;
     RaycastHit2D[] info;
@@ -86,7 +88,7 @@ public class RayCastHandler : MonoBehaviour
             critEffectTween = transform.DOShakeScale(critHitShakeDuration, critHitShakeStrenght);
 
         }
-        MunizCodeKit.MonoBehaviours.CameraController.ShakeCamera(.07f, .8f);
+        MunizCodeKit.MonoBehaviours.CameraController.ShakeCamera(cameraShakeDuration, cameraShakeStrenght);
         points *= 2.5f;
         if (points < 1) points = 1;
         playerScript.levelSystem.AddExperience((int)points);
