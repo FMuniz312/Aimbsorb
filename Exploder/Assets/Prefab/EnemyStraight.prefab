@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8123226042895509976}
   - component: {fileID: 8123226042895509977}
   - component: {fileID: 7269068079786324506}
+  - component: {fileID: 8942377100067922950}
   m_Layer: 0
   m_Name: EnemyStraight
   m_TagString: Enemy
@@ -90,7 +91,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.8, g: 0.68604755, b: 0.14901958, a: 1}
+  m_Color: {r: 0.96862745, g: 0.8761516, b: 0.11764703, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -113,3 +114,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyScriptableObject: {fileID: 11400000, guid: 2f4452465d083934696c847835f9319b, type: 2}
+--- !u!122 &8942377100067922950
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8123226042895509978}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4286611584
+  m_Size: 5
