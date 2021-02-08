@@ -6,6 +6,6 @@ public class LoadSceneHelper : MonoBehaviour
 {
     public void LoadMainScene()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 }

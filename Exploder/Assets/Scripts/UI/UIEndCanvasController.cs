@@ -28,7 +28,7 @@ public class UIEndCanvasController : MonoBehaviour
 
     public void LoadMainScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     private void OnDestroy()
     {
