@@ -8,7 +8,7 @@ using DG.Tweening;
 public class UIPlayerHUD : MonoBehaviour
 {
     [Header("Resource Input")]
-    [SerializeField] Text currentPointsText;
+    [SerializeField] Image currentPointsImage;
     [SerializeField] Text levelText;
     [SerializeField] Text healthText;
 
@@ -20,10 +20,11 @@ public class UIPlayerHUD : MonoBehaviour
     [SerializeField] float healthPointsTextShakeStrenght;
     [SerializeField] float healthPointsTextShakeDuration;
 
-    Tween shakeEnergyTextTween;
+    Tween shakeEnergyImageTween;
+    Tween fillEnergyImageTween;
     Tween shakeLevelTextTween;
     Tween shakeDamageTextTween;
-
+ 
     private void Start()
     {
         CharacterBehaviour.instance.levelSystem.experiencePointsSystem.OnPointsChanged += PlayerPoints_OnEnergyPointsChanged;
@@ -45,31 +46,36 @@ public class UIPlayerHUD : MonoBehaviour
     private void LevelPoints_OnLevelPointsChanged(object sender, PointsSystem.OnPointsDataEventArgs e)
     {
         UpdateLevelPointsText();
-       
+
 
     }
 
     private void PlayerPoints_OnEnergyPointsChanged(object sender, PointsSystem.OnPointsDataEventArgs e)
     {
         UpdateEnergyPointsText();
-        shakeEnergyTextTween?.Complete();
+        shakeEnergyImageTween?.Complete();
         shakeLevelTextTween?.Complete();
-        shakeEnergyTextTween = currentPointsText.rectTransform.DOShakeScale(energyPointsTextShakeDuration, energyPointsTextShakeStrenght);
+        shakeEnergyImageTween = currentPointsImage.rectTransform.DOShakeScale(energyPointsTextShakeDuration, energyPointsTextShakeStrenght);
         shakeLevelTextTween = levelText.rectTransform.DOShakeScale(levelPointsTextShakeDuration, levelPointsTextShakeStrenght);
     }
 
     void UpdateEnergyPointsText()
     {
-        currentPointsText.text = "Energy: " + CharacterBehaviour.instance.levelSystem.experiencePointsSystem.currentPoints + " / " + CharacterBehaviour.instance.levelSystem.experiencePointsSystem.maxPoints;
-    }
+        PointsSystem pointsSystem = CharacterBehaviour.instance.levelSystem.experiencePointsSystem;
+        float endValue = (float)pointsSystem.currentPoints / pointsSystem.maxPoints;
+        fillEnergyImageTween?.Complete();
+        fillEnergyImageTween =  currentPointsImage.DOFillAmount(endValue, 1f);
+
+
+        }
     void UpdateLevelPointsText()
     {
-          levelText.text = "Level: " + CharacterBehaviour.instance.levelSystem.levelPointsSystem.currentPoints + " / " + CharacterBehaviour.instance.levelSystem.levelPointsSystem.maxPoints;
-       
+        levelText.text = "Level: " + CharacterBehaviour.instance.levelSystem.levelPointsSystem.currentPoints + " / " + CharacterBehaviour.instance.levelSystem.levelPointsSystem.maxPoints;
+
     }
     void UpdateHealthText()
     {
-        healthText.text = "Damage to Machine: " + CharacterBehaviour.instance.healthSystem.currentPoints + " / " + CharacterBehaviour.instance.healthSystem.maxPoints;
+        healthText.text = "No-No's: " + CharacterBehaviour.instance.healthSystem.currentPoints + " / " + CharacterBehaviour.instance.healthSystem.maxPoints;
 
     }
 

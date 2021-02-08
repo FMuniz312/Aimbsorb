@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
     {
         songAudioSource = Camera.main.gameObject.GetComponent<AudioSource>();
         songAudioSource.volume = 0;
+        float cameraDefaultZoom = Camera.main.orthographicSize;
+        Camera.main.orthographicSize = 25;
+        DOTween.To(() => Camera.main.orthographicSize, (zoom) => Camera.main.orthographicSize = zoom, cameraDefaultZoom, 2);
         DOTween.To(()=>songAudioSource.volume, (p) => songAudioSource.volume = p, 1, 2.5f);
         gameRunning = true;
         timer = spawnTimer;

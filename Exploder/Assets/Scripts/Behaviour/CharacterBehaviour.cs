@@ -9,8 +9,7 @@ public class CharacterBehaviour : MonoBehaviour
     [Header("Tweening")]
     [SerializeField] float HitCameraShakeStrenght;
     [SerializeField] float HitCameraShakeDuration;
-    [SerializeField] float HitCameraZoomIn;
-    [SerializeField] float HitCameraZoomSpeed;
+    
 
     float zoomDefault;
     Tween cameraZoomIn;
@@ -28,7 +27,7 @@ public class CharacterBehaviour : MonoBehaviour
         if (instance == null) instance = this;
         levelSystem = new LevelSystem(100,4,1.2f);
         healthSystem = new PointsSystem(20);
-         zoomDefault = Camera.main.orthographicSize;
+  
     }
  
 
@@ -43,11 +42,7 @@ public class CharacterBehaviour : MonoBehaviour
         }
     }
     void VisualEffectOnHit(GameObject gameobject)
-    {
-        cameraZoomIn?.Complete();
-        Camera.main.orthographicSize = zoomDefault; //safe reset
-        TweenCallback actionAfterZoomInEffect = () => Camera.main.orthographicSize = zoomDefault;
-        cameraZoomIn = Camera.main.DOOrthoSize(HitCameraZoomIn, 1 / HitCameraZoomSpeed).OnComplete(actionAfterZoomInEffect);
+    {  
         MunizCodeKit.MonoBehaviours.CameraController.ShakeCamera(HitCameraShakeDuration, HitCameraShakeStrenght);
         MunizCodeKit.Factory.PrefabFactory.instance.CreateItem(MunizCodeKit.Factory.PrefabFactory.FactoryProduct.PlayerHitParticle, gameobject.transform.position);
 
